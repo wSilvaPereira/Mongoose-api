@@ -6,8 +6,6 @@ import mongoose from 'mongoose';
 
 dotenv.config();
 
-// require('dotenv').config();
-
 async function connectMongoose() {
   await mongoose.connect(
     'mongodb+srv://' +
@@ -34,5 +32,5 @@ app.use(express.json());
 app.use('/student', studentRouter);
 
 app.listen(process.env.PORT, () => {
-  console.log('API iniciada');
+  console.log(`API iniciada na porta ${process.env.PORT}`);
 });
