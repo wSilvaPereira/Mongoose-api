@@ -58,23 +58,4 @@ app.delete('/:id', async (req, res) => {
   }
 });
 
-//Put
-app.put('/:id', async (req, res) => {
-  try {
-    const id = req.params.id;
-    // console.log(id);
-    // const teste = student;
-    const student = await studentModel.findByIdAndUpdate(
-      { _id: id },
-      req.body,
-      {
-        new: true,
-      }
-    );
-    res.send(student);
-  } catch (error) {
-    res.status(500).send(error);
-  }
-});
-
 export { app as studentRouter };
